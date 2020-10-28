@@ -1,0 +1,74 @@
+.carousel-wrap {
+  margin: 90px auto;
+  padding: 0 5%;
+  width: 80%;
+  position: relative;
+}
+
+/* fix blank or flashing items on carousel */
+.owl-carousel .item {
+  position: relative;
+  z-index: 100;
+  -webkit-backface-visibility: hidden;
+  text-align: center;
+  & img{
+    position: relative;
+    display: inline;
+    max-height: 60px;
+    max-width: 100%;
+    width: auto;
+  }
+}
+
+/* end fix */
+.owl-nav{
+  > div {
+    margin-top: -26px;
+    position: absolute;
+    bottom: -70px;
+    color: #cdcbcd;
+  }
+  & img.icon__arrow {
+    height: 2em;
+    width: 2em;
+  }
+  .owl-prev {
+    right: 50px;
+    @include media(xs){
+      right: 120px;
+      bottom: -25px;
+    }
+    &::after{
+      content: ' ';
+      position: absolute;
+      height: 2em;
+      width: 2em;
+      background: url('../img/icon/flecha-blanca-left.svg') no-repeat;
+      transform: rotate(180deg);
+      background-size: auto 100%;
+      @include media(xs){
+
+        height: 4em;
+        width: 4em;
+      }
+    }
+  };
+  .owl-next {
+    right: -30px;
+    @include media(xs){
+      right: 20px;
+    }
+    &::after{
+      content: ' ';
+      position: absolute;
+      height: 2em;
+      width: 2em;
+      background: url('../img/icon/flecha-blanca-left.svg') no-repeat;
+      background-size: auto 100%;
+      @include media(xs){
+        height: 4em;
+        width: 4em;
+      }
+    }
+  }
+}

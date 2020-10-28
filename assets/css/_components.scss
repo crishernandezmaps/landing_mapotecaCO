@@ -1,0 +1,149 @@
+$borde: #40E2C5;
+$pri: #026CD8;
+$sec: #00BBDE;
+
+//boton primario
+a.btn-primario{
+    padding: 1.2em;
+    margin-right: 3em;
+    font-size: 1em;
+    position: relative;
+    @include media(xs){
+      display: block;
+      font-size: 1.1em;
+      margin-left: 18%;
+      width: 40%;
+      margin-bottom: 1.5em;
+    }
+    @include media(sm){
+      font-size: 1.1em;
+      width: 40%;
+      margin-bottom: 1.5em;
+    }
+    @include media(md){
+      font-size: 1.1em;
+      width: 40%;
+      margin-bottom: 1.5em;
+    }
+    &::after{
+      content: '';
+      background-image: url('../img/icon/flecha-blanca.svg');
+      height: 1.2em;
+      width: 1em;
+      position: absolute;
+      top: 1.3em;
+      right: -1.2em;
+    };
+    &:hover::after{
+      content: '';
+      right: -1.7em;
+      transition: .2s right ease-in;
+    }
+    &::before{
+      transform: skew(20deg);
+      background: transparent;
+      border: 3px solid $borde;
+      content: '';
+      width: 100%;
+      padding: 1.2em;
+      position: absolute;
+      top: 10px;
+      left: 0;
+      z-index: -1;
+    };
+    &:hover::before{
+      background: linear-gradient(45deg, $borde,  $sec);
+      padding: 1.3em;
+      border: none;
+      opacity: 1;
+      transition: .4s opacity ease-out;
+    };
+}
+
+//boton secundario
+a.btn-secundario{
+  padding: 1.2em;
+  margin-right: 3em;
+  font-size: 1em;
+  position: relative;
+  color: $blanco;
+  &::after{
+    content: '';
+    background-image: url('../img/icon/flecha-blanca.svg');
+    height: 1.2em;
+    width: 1em;
+    position: absolute;
+    top: 1.3em;
+    right: -1.2em;
+  };
+  &.active{
+    color: $borde;
+    opacity: 1;
+      &::after{
+        content: '';
+        background-image: url('../img/icon/flecha-celeste.svg');
+      };
+  }
+}
+
+#hamburguesa img{
+  height: 2em;
+  width: 2em;
+  padding: 1em;
+  display: none;
+  @include media(xs){
+    display: block;
+  }
+  @include media(md){
+    display: block;
+  }
+  @include media(sm){
+    display: block;
+  }
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.owl-nav{
+  position: relative;
+
+  width: 100%;
+
+    & .owl-prev::after{
+      bottom: 0;
+      left: 10px;
+      @include media(xs){
+        height: 3em;
+      }
+      @include media(sm){
+        height: 3em;
+      }
+      @include media(md){
+        height: 3em;
+      }
+    }
+    & .owl-next::after{
+      bottom: 0;
+      right: 10px;
+      @include media(xs){
+        height: 3em;
+      }
+      @include media(sm){
+        height: 3em;
+      }
+      @include media(md){
+        height: 3em;
+      }
+    }
+
+}
+
+.owl-carousel .owl-dot, .owl-carousel .owl-nav .owl-next, .owl-carousel .owl-nav .owl-prev {
+  position: absolute;
+  left: 0px;
+  bottom: -7em;
+}

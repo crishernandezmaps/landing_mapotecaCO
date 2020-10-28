@@ -1,0 +1,125 @@
+@import '_base.scss';
+@import '_components.scss';
+@import '_carousel.scss';
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700|Nunito+Sans:600,800');
+
+//// variables responsivas:
+$breakpoint-xs: 360px;
+$breakpoint-sm: 767px;
+$breakpoint-md: 1023px;
+$breakpoint-lg: 1360px;
+
+@mixin media($media) {
+  @if $media == xs {
+    @media (max-width: $breakpoint-sm) { @content; }
+  }
+  @else if $media == sm { //entre 767 a 1023
+    @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) { @content; }
+  }
+  @else if $media == md { //entre 1022 hasta 1360
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg){ @content; }
+  }
+  @else if $media == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  }
+}
+
+$pri: #026CD8;
+$sec: #00BBDE;
+$destacar: #A2FFFF;
+$borde: #40E2C5;
+$blanco: #fff;
+
+.oculto{
+  display: none;
+}
+
+@keyframes appear{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes sube{
+  0%{
+    opacity: 0;
+    bottom: 10%;
+  }
+}
+.aparece{
+  animation: appear .5s ease-out;
+}
+
+.subir{
+  animation: sube .3s linear;
+}
+
+
+.scene {
+  position: relative;
+  width: 80%;
+  height: 50%;
+  transform: translateX(50%) translateY(-30%);
+  perspective: 180px;
+  perspective-origin: right top;
+  @include media(xs){
+    width: 100%;
+    height: 50vh;
+    transform: translateX(50%) translateY(-15%);
+    perspective: 200px;
+  }
+  @include media(sm){
+    width: 100%;
+    height: 50vh;
+    transform: translateX(50%) translateY(-15%);
+    perspective: 200px;
+  }
+  @include media(md){
+    width: 100%;
+    height: 50vh;
+    transform: translateX(50%) translateY(-15%);
+    perspective: 210px;
+  }
+}
+
+.panel {
+  position: absolute;
+  top: 100px;
+  right: 150px;
+  margin: 0px;
+  &::before{
+    position: absolute;
+    content: '';
+    width: 98%;
+    height: 98%;
+    bottom: 3%;
+    left: 3%;
+    border: 2px solid $borde;
+    border-radius: 4px;
+    z-index: -2;
+    opacity: .5;
+  }
+}
+
+.panel:first-child{
+  z-index: 100;
+  transform: translateZ(1em);
+  opacity: .1;
+}
+.panel:nth-child(2){
+  z-index: 200;
+  transform: translateZ(2em);
+  opacity: .3;
+}
+.panel:nth-child(3){
+  z-index: 300;
+  transform: translateZ(3em);
+  opacity: .6;
+}
+.panel:nth-child(4){
+  z-index: 400;
+  transform: translateZ(4em);
+}
